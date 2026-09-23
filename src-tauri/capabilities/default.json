@@ -1,0 +1,6 @@
+{
+  "identifier": "default",
+  "description": "Z-Accounts 默认权限（settings 窗口运行时创建，一并授权；captcha 窗口见 captcha.json）",
+  "windows": ["main", "settings"],
+  "permissions": ["core:default", "dialog:default"]
+}

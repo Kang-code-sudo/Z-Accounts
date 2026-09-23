@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Z-Accounts Auto Switch Preview</title>
+  <link rel="stylesheet" href="/src/styles.css">
+  <link rel="stylesheet" href="/src/workspace.css">
+</head>
+<body>
+  <div id="app"></div>
+  <script>
+    const previewState = {
+      language: "zh", theme: "dark", auto_claim: false, auto_switch: false,
+      zcode_running: true, live_logged_in: true, zcode_path_ok: true,
+      accounts: [
+        { id: "preview-one", name: "Current", is_active: true, has_config: true, has_user_info: true, identity: { username: "current@example.test", email: "current@example.test" } },
+        { id: "preview-two", name: "Next", is_active: false, has_config: true, has_user_info: true, identity: { username: "next@example.test", email: "next@example.test" } }
+      ]
+    };
+    window.__TAURI_INTERNALS__ = {
+      transformCallback: () => 1,
+      invoke: async (command, args) => {
+        if (command === "app_version") return "preview";
+        if (command === "get_state") return previewState;
+        if (command === "get_account_quota") return { items: [], is_empty: true };
+        if (command === "claim_preview") return [];
+        if (command === "set_behavior") { previewState.auto_switch = !!args.autoSwitch; return null; }
+        return null;
+      }
+    };
+  </script>
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

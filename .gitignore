@@ -1,0 +1,45 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+release/
+
+# Tauri
+src-tauri/target/
+src-tauri/gen/
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+
+# Misc
+nul
+*.local
+
+# Local agent config
+.zcode/
+.zcode-switch/
+
+# Never commit account exports or local authentication data
+*.zsb
+*.jsonl
+*.sqlite
+*.sqlite-*
+credentials.json
+coding-plan-cache.json
+.env
+.env.*
+!.env.example
+
+__pycache__/

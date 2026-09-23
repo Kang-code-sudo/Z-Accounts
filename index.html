@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Z-Accounts</title>
+    <script>document.documentElement.dataset.theme = localStorage.getItem('zaccounts.theme') || 'dark';</script>
+    <style>
+      html, body { background: #202124; }
+      :root[data-theme="light"], :root[data-theme="light"] body { background: #f3f5f8; }
+      #splash {
+        position: fixed; inset: 0; z-index: 999;
+        background: #202124;
+        display: flex; align-items: center; justify-content: center;
+        transition: opacity .18s ease;
+      }
+      :root[data-theme="light"] #splash { background: #f3f5f8; }
+      #splash img {
+        width: 88px; height: 88px;
+        animation: splash-pulse 1.6s ease-in-out infinite;
+      }
+      @keyframes splash-pulse { 50% { opacity: .5; } }
+      @media (prefers-reduced-motion: reduce) {
+        #splash img { animation: none; }
+        #splash { transition: none; }
+      }
+    </style>
+    <!-- 普通 link：dev 下 vite 会重写为模块注入（media 技巧会破坏该转换）；prod 为本地文件秒到 -->
+    <link rel="stylesheet" href="/src/styles.css" />
+    <link rel="stylesheet" href="/src/workspace.css" />
+  </head>
+  <body>
+    <div id="app"></div>
+    <div id="splash"><img src="/brand-icon.png" alt="Z-Accounts"></div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

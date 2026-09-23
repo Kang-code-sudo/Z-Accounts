@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Z-Accounts</title>
+    <style>
+      html, body { background: #0a0a0c; }
+    </style>
+    <link rel="stylesheet" href="/src/styles.css" />
+  </head>
+  <body class="captcha-win">
+    <div id="cap-app">
+      <div class="cap-status">
+        <div id="cap-dot" class="cap-dot"></div>
+        <!-- 文案由 captcha.js 按语言注入（避免 en 模式首帧闪中文） -->
+        <div id="cap-text"></div>
+      </div>
+      <div id="cap-detail" class="cap-detail"></div>
+      <!-- Aliyun SDK popup 容器 + 触发按钮（无感通过时不可见；风控时显示给用户点） -->
+      <div id="cap-holder"></div>
+      <button id="cap-btn" type="button" hidden></button>
+      <div class="cap-foot"></div>
+    </div>
+    <script type="module" src="/src/captcha.js"></script>
+  </body>
+</html>

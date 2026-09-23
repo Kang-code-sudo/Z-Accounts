@@ -1,0 +1,55 @@
+name: Windows EXE
+
+on:
+  push:
+    tags: ["v*"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  portable:
+    name: Build portable EXE
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: x86_64-pc-windows-msvc
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: src-tauri
+      - run: npm ci
+      - run: npm run check:i18n
+      - name: Check tag matches project version
+        if: startsWith(github.ref, 'refs/tags/v')
+        shell: pwsh
+        run: |
+          $version = (Get-Content package.json | ConvertFrom-Json).version
+          if ($env:GITHUB_REF_NAME -ne "v$version") { throw "Tag must be v$version" }
+      - run: npm run dist
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Z-Accounts-Windows-EXE
+          path: |
+            release/Z-Accounts-*.exe
+            release/SHA256SUMS.txt
+          if-no-files-found: error
+      - name: Create draft GitHub Release
+        if: startsWith(github.ref, 'refs/tags/v')
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          $version = (Get-Content package.json | ConvertFrom-Json).version
+          $exe = "release/Z-Accounts-$version.exe"
+          gh release view $env:GITHUB_REF_NAME --json id *> $null
+          if ($LASTEXITCODE -eq 0) { throw "Release already exists; review it manually." }
+          gh release create $env:GITHUB_REF_NAME $exe release/SHA256SUMS.txt --title "Z-Accounts $env:GITHUB_REF_NAME" --generate-notes --draft
+          if ($LASTEXITCODE -ne 0) { throw "Failed to create draft release." }

@@ -1,0 +1,6 @@
+{
+  "identifier": "captcha-window",
+  "description": "验证码子窗口最小权限：只需 core（invoke/listen），无 dialog",
+  "windows": ["captcha"],
+  "permissions": ["core:default"]
+}

@@ -1,6 +1,14 @@
-# Z-Accounts
+<h1 align="center">Z-Accounts</h1>
 
-[English](README.en.md) · [许可证](LICENSE) · [安全说明](SECURITY.md)
+<p align="center"><strong>简体中文</strong> | <a href="README.en.md">English</a></p>
+
+<p align="center"><img src="public/brand-icon.png" alt="Z-Accounts 图标" width="160" /></p>
+
+<p align="center"><strong>非官方 ZCode 多账号管理桌面工具</strong></p>
+
+<p align="center">本地账号库 · 额度仪表盘 · 自动切号 · 中英双语 · 加密备份</p>
+
+<p align="center"><a href="https://github.com/Kang-code-sudo/Z-Accounts/releases/latest">下载最新 EXE</a> · <a href="LICENSE">许可证</a> · <a href="SECURITY.md">安全说明</a></p>
 
 Z-Accounts 是一款面向 Windows 的非官方 ZCode 多账号管理工具，使用 Tauri 2、Rust 和原生 WebView 构建。它在本机保存账号快照、显示可查询的额度，并帮助你切换 ZCode 的当前登录。
 

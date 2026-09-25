@@ -34,7 +34,7 @@ const actions = {
   async refresh() { await refresh(); render(); },
 
   async openGitHub() {
-    await invoke("open_external", { url: "https://github.com/pjpv/zcode-switch" });
+    await invoke("open_external", { url: "https://github.com/Kang-code-sudo/Z-Accounts" });
   },
 
   async setLang(l) {
@@ -213,7 +213,7 @@ function render() {
         <button class="btn-ghost" click="actions.savePath()">${t("common.save")}</button>
       </div>
       <div class="hint">${t("s.hint")}</div>
-      <div class="gh-row"><a class="gh-link" href="https://github.com/pjpv/zcode-switch" target="_blank" rel="noopener" click="actions.openGitHub()">${t("s.githubLink")}</a>${appVer ? `<span class="ver">v${esc(appVer)}</span>` : ""}</div>
+      <div class="gh-row"><a class="gh-link" href="https://github.com/Kang-code-sudo/Z-Accounts" target="_blank" rel="noopener" click="actions.openGitHub()">${t("s.githubLink")}</a>${appVer ? `<span class="ver">v${esc(appVer)}</span>` : ""}</div>
     </section>`;
 }
 

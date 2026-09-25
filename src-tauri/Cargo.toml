@@ -1,6 +1,6 @@
 [package]
 name = "z-accounts"
-version = "1.8.2"
+version = "1.8.3"
 description = "Z-Accounts 账号管理平台"
 license = "MIT"
 edition = "2021"

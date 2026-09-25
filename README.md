@@ -52,11 +52,11 @@ npm run dist
 ## CLI 示例
 
 ```powershell
-.\release\Z-Accounts-1.8.2.exe --cli list
-.\release\Z-Accounts-1.8.2.exe --cli quota
-.\release\Z-Accounts-1.8.2.exe --cli quota --id <账号ID>
-.\release\Z-Accounts-1.8.2.exe --cli model-status
-.\release\Z-Accounts-1.8.2.exe --cli switch --id <账号ID> --restart
+.\release\Z-Accounts-1.8.3.exe --cli list
+.\release\Z-Accounts-1.8.3.exe --cli quota
+.\release\Z-Accounts-1.8.3.exe --cli quota --id <账号ID>
+.\release\Z-Accounts-1.8.3.exe --cli model-status
+.\release\Z-Accounts-1.8.3.exe --cli switch --id <账号ID> --restart
 ```
 
 CLI 的 `list`、`quota` 等输出可能包含账号信息，不要直接粘贴到公开 Issue。导入/导出密码优先通过 `ZSW_PASSWORD` 环境变量传入，避免把密码放在命令历史里。

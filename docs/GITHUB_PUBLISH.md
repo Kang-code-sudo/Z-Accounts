@@ -12,11 +12,11 @@
 
 > Z-Accounts 是一款非官方 Windows 桌面账号管理工具：集中保存并切换 ZCode 登录、查询各账号套餐与 Token 余额、查看本机估算用量趋势，并提供可选自动切号、隐私隐藏和加密备份。软件不绕过官方验证或服务端限制。
 
-## 首个 Release 文案（v1.8.2）
+## Release 文案（v1.8.3）
 
-> Z-Accounts v1.8.2：Windows 便携 EXE，提供账号库、额度仪表盘、OAuth 添加账号、中英双语、亮暗主题、隐私隐藏、可选自动切号和 `.zsb` 加密备份。本版修正 OAuth 初始化时服务端与本机时钟不同步导致的误判。历史 Token 用量是本机余额快照的估算，不等同于官方账单。自动切号仅处理已确认额度耗尽，不处理 `405/3012` 网关拦截或 `429` 限流。
+> Z-Accounts v1.8.3：Windows 便携 EXE，提供账号库、额度仪表盘、OAuth 添加账号、中英双语、亮暗主题、隐私隐藏、可选自动切号和 `.zsb` 加密备份。本版为应用使用独立的 Tauri 标识，避免与旧版 zcode-switch 的单实例互相接管。历史 Token 用量是本机余额快照的估算，不等同于官方账单。自动切号仅处理已确认额度耗尽，不处理 `405/3012` 网关拦截或 `429` 限流。
 
-下载项只需 `Z-Accounts-1.8.2.exe` 和 `SHA256SUMS.txt`；不上传安装包、账号数据或本机日志。未签名 EXE 在 Windows 上可能显示下载/运行警告，用户应核对来源与 SHA-256。
+下载项只需 `Z-Accounts-1.8.3.exe` 和 `SHA256SUMS.txt`；不上传安装包、账号数据或本机日志。未签名 EXE 在 Windows 上可能显示下载/运行警告，用户应核对来源与 SHA-256。
 
 ## 上传前检查
 
@@ -29,7 +29,7 @@
 
 ## 提交和发布
 
-在新建的空 GitHub 仓库中提交解压后的源码，再推送 `main`。检查 Actions 中的 CI 通过后，推送与项目版本一致的标签 `v1.8.2`。Release 工作流只生成 Windows EXE 和校验和，并创建**草稿**；确认内容后由仓库所有者手动发布。不要把本机 `release/` 目录直接提交到源码仓库。
+在新建的空 GitHub 仓库中提交解压后的源码，再推送 `main`。检查 Actions 中的 CI 通过后，推送与项目版本一致的标签 `v1.8.3`。Release 工作流只生成 Windows EXE 和校验和，并创建**草稿**；确认内容后由仓库所有者手动发布。不要把本机 `release/` 目录直接提交到源码仓库。
 
 示例命令（把远端地址换成你自己的仓库）：
 
@@ -37,11 +37,11 @@
 git init -b main
 git add .
 git status --short
-git commit -m "Initial open-source release v1.8.2"
+git commit -m "Release v1.8.3"
 git remote add origin https://github.com/<owner>/<repository>.git
 git push -u origin main
-git tag v1.8.2
-git push origin v1.8.2
+git tag v1.8.3
+git push origin v1.8.3
 ```
 
 推送前务必阅读 `git status --short`，确认暂存的都是可公开文件。若此前已将敏感内容推送到远端，单纯删除文件并再次提交不足以清除历史；应先撤销或轮换相关凭据，再处理仓库历史。

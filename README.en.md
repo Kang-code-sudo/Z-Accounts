@@ -44,11 +44,11 @@ The result is `release/Z-Accounts-<version>.exe` plus `release/SHA256SUMS.txt`; 
 ## CLI examples
 
 ```powershell
-.\release\Z-Accounts-1.8.2.exe --cli list
-.\release\Z-Accounts-1.8.2.exe --cli quota
-.\release\Z-Accounts-1.8.2.exe --cli quota --id <account-id>
-.\release\Z-Accounts-1.8.2.exe --cli model-status
-.\release\Z-Accounts-1.8.2.exe --cli switch --id <account-id> --restart
+.\release\Z-Accounts-1.8.3.exe --cli list
+.\release\Z-Accounts-1.8.3.exe --cli quota
+.\release\Z-Accounts-1.8.3.exe --cli quota --id <account-id>
+.\release\Z-Accounts-1.8.3.exe --cli model-status
+.\release\Z-Accounts-1.8.3.exe --cli switch --id <account-id> --restart
 ```
 
 CLI commands such as `list` and `quota` may print account details; do not paste their raw output into public issues. Prefer the `ZSW_PASSWORD` environment variable for import/export passwords instead of putting a password into shell history.

@@ -47,7 +47,7 @@ npm run check:i18n
 npm run dist
 ```
 
-输出为 `release/Z-Accounts-<版本>.exe` 和 `release/SHA256SUMS.txt`，**不生成 setup.exe**。开发模式使用 `npm run tauri dev`。直接用 Cargo 编译正式版时需启用 `custom-protocol`，否则无法嵌入前端资源。
+输出为 `release/Z-Accounts-<版本>.exe` 和 `release/SHA256SUMS.txt`。开发模式使用 `npm run tauri dev`。直接用 Cargo 编译正式版时需启用 `custom-protocol`，否则无法嵌入前端资源。
 
 ## CLI 示例
 
